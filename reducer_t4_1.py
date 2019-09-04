@@ -25,28 +25,45 @@ for line in sys.stdin:
     venue=key_attr[1]
     batsman=key_attr[3]
     key=(venue,batsman) # in tuple format
-
+    #print(key)
+	
         #reformatting value
-    value=value.split('\'')
-    ctr=int(value[1]);
-    runs=int(value[3]);
+    value=value.strip()
+    value=value.split(',')
+    #print(value)
+    ctr=int(value[0][1:]);
+    runs=int(value[1][:-1]);
 
     if(key in result.keys()):
-    {
         result[key][0]+=ctr;
         result[key][1]+=runs;
-    }
-    else:
-    result.update({key:[ctr,runs]});
-# removing all cases where n of deliveries is less than 10
-for keys in result:
-    if(result[keys][0]<10):
-        del(result[keys]) # removing elements with less than 10 deliveries
 
+    else:
+    	result.update({key:[ctr,runs]});
+#print(len(result))
+# removing all cases where n of deliveries is less than 10
+result_temp={}
+reducer_result={}
 for i in result:
-    result[i]=[batsman,result[i][1]/result[i][0]] #total runs/ total deliveries
-    i=venue
-    print('%s:%s' % (str(i),str(result[i])))
+    #print(type(i),type(result[i]))
+    if(result[i][0]>=10):
+	result_temp.update({i:result[i]});
+        #del(result[keys]) # removing elements with less than 10 deliveries
+#print(len(result_temp))
+for i in result_temp:
+    result_temp[i]=(float(result_temp[i][1])/float(result_temp[i][0]))*100 #total runs/ total deliveries
+    #print('%s:%s' % (str(i),str(result_temp[i])))
+    if(list(i)[0] in reducer_result):
+	reducer_result[list(i)[0]].update({list(i)[1]:result_temp[i]})
+    else:
+	reducer_result.update({list(i)[0]:{list(i)[1]:result_temp[i]}})
+
+for i in reducer_result:
+  res=sorted(reducer_result[i].items(),key=itemgetter(1),reverse=True)
+  print(str(i),str(list(res[0])[0]))
+
+	
+
 
 # output format
 #venue:[batsman,strikerate] 
