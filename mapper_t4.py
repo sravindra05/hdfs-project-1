@@ -5,9 +5,10 @@ import csv
 csv_input = sys.stdin
 venue='' #initially empty string
 #csv_input=r'C:\Users\USER i5\Downloads\alldata.csv'
-for line in csv_input:
-    line = line.strip()
-    row_list = line.split(',')
+for row in csv.reader(iter(sys.stdin.readline,'')):
+    #line = line.strip()
+    #row_list = line.split(',')
+    row_list=row
         # key,value : (Venue,Batsman),[no of deliveries,no of runs]
         # exclude cases with extras 
         # storing venue for each match
