@@ -12,12 +12,8 @@ for line in sys.stdin:
     # print(type(key),type(val))
     try:
         # formatting key
-        key=key.split("(")
-        key=key[1]
-        key=key.split(")")
-        key=key[0]
-        key=key.split(",")
-        key[1]=key[1][1::] # removes the first element " " (space)
+        key=key.split("'")
+        key=(key[1],key[3])
 
         # formatting val
         val=val.split("[")
@@ -34,12 +30,6 @@ for line in sys.stdin:
         print("ValueError")
         continue
 
-    # removing single quotes from names of batsman and bowler
-    key[0]=key[0][1:len(key[0])-1]
-    key[1]=key[1][1:len(key[1])-1]
-
-    key=tuple(key)
-    
     if(key in res.keys()):
         res[key][0]+=ball_count
         res[key][1]+=wicket_count
