@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """reducer.py"""
 
 from operator import itemgetter
@@ -60,6 +60,4 @@ for i in result_temp:
 
 for i in reducer_result:
     res = sorted(reducer_result[i].items(), key=itemgetter(1), reverse=True)
-    print(str(i), str(list(res[0])[0]))
-
-print(dict_ven)
+    print(str(i),',', str(list(res[0])[0]))
