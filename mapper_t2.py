@@ -16,7 +16,7 @@ for line in infile:
         key = (my_list[4], my_list[6])
 
         # ensuring that runouts and no wickets are not counted
-        if(my_list[9] != '""' and my_list[9] != "run out"):
+        if(my_list[9] != '""' and my_list[9] != "run out" and my_list != "retired hurt"):
             val.append(1)
         else:
             val.append(0)
