@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import sys
 import csv
 infile = sys.stdin
@@ -13,11 +13,9 @@ for line in infile:
         # val= [no_of_deliveries, no_of_runs, no_of_wickets]
         val = [1]  # no_of_deliveries for 1 record
         # batsman in column 4 and bowler in column 6
-        key = (my_list[4], my_list[6])
-
+        key = (my_list[6], my_list[4])
+        # no_of_runs in record with extras
+        val.append(int(my_list[7])+int(my_list[8]))
         # ensuring that runouts and no wickets are not counted
-        if(my_list[9] != '""' and my_list[9] != "run out" and my_list != "retired hurt"):
-            val.append(1)
-        else:
-            val.append(0)
+
         print('%s:%s' % (str(key), str(val)))
