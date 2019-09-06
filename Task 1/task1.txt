@@ -1,6 +1,6 @@
 
-<!--Changing replication factor to 2 in the hdfs-site.xml file. THe previous default value
-was set to 3-->
+<!--Changing replication factor of the Hadoop cluster to 2 in the hdfs-site.xml file. The previous default value
+was set to 3.-->
 
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>

@@ -5,7 +5,7 @@ import csv
 dict_ven = {}
 list_ven = []
 infile = sys.stdin
-#csv_input = sys.stdin
+
 venue = ''  # initially empty string
 #csv_input=r'C:\Users\USER i5\Downloads\alldata.csv'
 for line in infile:
@@ -23,7 +23,6 @@ for line in infile:
             venue = row_list[2]
         if(venue not in list_ven):
             list_ven.append(venue)
-        # print(venue+"\n")
         # recording values for each match, taking in only values which are not extras
     elif(row_list[0] == 'ball' and int(row_list[8]) == 0):
         key = venue+'~'+row_list[4]
@@ -36,10 +35,3 @@ for line in infile:
         print('%s:%s' % (key, str(val)))
     else:
         continue
-# list_ven.sort()
-# print(list_ven)
-# print(len(list_ven))
-file = open(r'/home/cdiya/hadoop_mapper_op1.txt', 'w')
-file.write(str(dict_ven))
-file.close()
-# print(dict_ven)
