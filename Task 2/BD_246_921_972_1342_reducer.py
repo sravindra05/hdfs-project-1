@@ -39,7 +39,7 @@ for line in sys.stdin:
 # x[1][0] for increasing order of balls played in case of tie of above
 # x[0][0] for alphabetic order of name of batsman
 res = sorted(
-    res.items(), key=lambda x: (-x[1][1], x[1][0], x[0][0]), reverse=False)
+    res.items(), key=lambda x: (-x[1][1], x[1][0], x[0][0],x[0][1]), reverse=False)
 
 # output format: batsman,bowler,no_of_wickets,no_of_deliveries
 for rec in res:
