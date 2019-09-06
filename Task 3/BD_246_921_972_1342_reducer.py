@@ -39,7 +39,7 @@ for line in sys.stdin:
 #  x[1][0] for ascending order of no of deliveries
 #  x[0][0] for name of bowler
 res = sorted(
-    res.items(), key=lambda x: (-x[1][1], x[1][0], x[0][0]), reverse=False)
+    res.items(), key=lambda x: (-x[1][1], x[1][0], x[0][0], x[0][1]), reverse=False)
 
 # output format: bowler,batsman,no_of_runs,no_of_deliveries
 for rec in res:
