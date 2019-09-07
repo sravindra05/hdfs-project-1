@@ -44,4 +44,4 @@ res = sorted(
 # output format: batsman,bowler,no_of_wickets,no_of_deliveries
 for rec in res:
     if(rec[1][0] > 5):
-        print('%s,%s,%d,%d' % (rec[0][0], rec[0][1], rec[1][1], rec[1][0]))
+        print('%s,%s,%d,%d' %   (rec[0][0], rec[0][1], rec[1][1], rec[1][0]))
